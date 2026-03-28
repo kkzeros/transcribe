@@ -1,0 +1,7 @@
+# 不上传到 ClawHub 的文件
+.env
+cookies.txt
+__pycache__/
+*.pyc
+*.pyo
+results/

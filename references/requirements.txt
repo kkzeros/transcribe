@@ -1,0 +1,5 @@
+yt-dlp
+oss2
+aliyun-python-sdk-core
+python-dotenv
+requests

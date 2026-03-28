@@ -1,0 +1,14 @@
+# 凭证文件，禁止提交
+.env
+cookies.txt
+
+# Python 缓存
+__pycache__/
+*.pyc
+*.pyo
+
+# 转写结果输出目录
+results/
+
+# macOS
+.DS_Store

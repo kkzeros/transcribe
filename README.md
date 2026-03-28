@@ -32,17 +32,13 @@
 
 ## 安装
 
-### 方式一：通过 clawhub CLI 安装
+Clone 到 OpenClaw 的 skills 目录：
 
 ```bash
-clawhub install transcribe
+git clone https://github.com/<your-github-username>/transcribe-openclaw.git ~/.openclaw/skills/transcribe-openclaw
 ```
 
-### 方式二：手动克隆
-
-```bash
-git clone https://github.com/<your-org>/transcribe-openclaw.git ~/.openclaw/skills/transcribe-openclaw
-```
+> clawhub 市场版本即将上线，届时可通过 `clawhub install transcribe` 一键安装。
 
 ---
 

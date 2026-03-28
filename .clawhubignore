@@ -4,4 +4,3 @@ cookies.txt
 __pycache__/
 *.pyc
 *.pyo
-results/

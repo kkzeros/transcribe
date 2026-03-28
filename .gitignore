@@ -7,8 +7,5 @@ __pycache__/
 *.pyc
 *.pyo
 
-# 转写结果输出目录
-results/
-
 # macOS
 .DS_Store

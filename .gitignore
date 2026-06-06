@@ -1,8 +1,28 @@
 # 凭证文件，禁止提交
 .env
+.env*
+!.env.example
 cookies.txt
+cookies/
+
+# 本地测试与临时产物
+tests/
+transcribe-results/
+results/
+*.log
+
+# 本地音视频输入/中间文件，避免误提交大文件
+*.mp3
+*.mp4
+*.m4a
+*.wav
+*.flac
+*.aac
+*.mov
+*.mkv
 
 # Python 缓存
+.venv/
 __pycache__/
 *.pyc
 *.pyo

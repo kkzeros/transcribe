@@ -85,7 +85,7 @@ https://common-buy.aliyun.com/?commodityCode=sfm_TingwuDiscountASR_dp_cn
 
 ---
 
-## 四、创建 RAM 子账户 + 配置权限
+## 四、创建 RAM 用户 + 配置权限
 
 前往 RAM 控制台：
 
@@ -118,7 +118,12 @@ https://ram.console.aliyun.com/overview
       "Action": [
         "oss:PutObject",
         "oss:GetObject",
-        "oss:DeleteObject"
+        "oss:DeleteObject",
+        "oss:InitiateMultipartUpload",
+        "oss:UploadPart",
+        "oss:CompleteMultipartUpload",
+        "oss:AbortMultipartUpload",
+        "oss:ListParts"
       ],
       "Resource": "acs:oss:*:*:<YOUR_BUCKET_NAME>/*"
     }
@@ -128,20 +133,20 @@ https://ram.console.aliyun.com/overview
 
 > 将 `<YOUR_BUCKET_NAME>` 替换为第二步创建的 Bucket 名称。
 
-此策略包含：查看 Bucket 状态、上传文件、获取文件、删除文件，为本 skill 正常运行所需的最小权限。
+此策略包含：查看 Bucket 状态、上传文件、获取文件、删除文件，以及大文件/流式上传所需的分片上传权限。
 
 > 阿里云官方默认建议策略（`oss:ListBuckets`）较宽泛，此处做了收窄，仅授权指定 Bucket 的必要操作。
 
 ### 4.3 为用户授权
 
-左侧菜单 → **用户** → 找到刚创建的 RAM 子账号 → 点击「授权」→ 在弹窗中搜索并添加以下两个权限策略：
+左侧菜单 → **用户** → 找到刚创建的 RAM 用户 → 点击「授权」→ 在弹窗中搜索并添加以下两个权限策略：
 
 | 策略 | 说明 |
 |------|------|
 | 刚创建的自定义 OSS 策略 | 操作指定 Bucket 的权限 |
 | `AliyunTingwuFullAccess` | 调用通义听悟服务的权限 |
 
-确认授权后，该 RAM 子账号即具备操作 OSS 和使用通义听悟的完整权限。
+确认授权后，该 RAM 用户即具备操作 OSS 和使用通义听悟的完整权限。
 
 ---
 

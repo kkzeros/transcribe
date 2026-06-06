@@ -9,22 +9,24 @@ import json
 import datetime
 import urllib.request
 import argparse
+import os
 import oss2
 from pathlib import Path
 from upload_oss import OSS_TRANSCRIPT_DIR
 from errors import explain_error, explain_task_status
+from config import get_output_dir
 from dotenv import load_dotenv
 from aliyunsdkcore.client import AcsClient
 from aliyunsdkcore.request import CommonRequest
 from aliyunsdkcore.auth.credentials import AccessKeyCredential
 
-# ── 参数配置 ─────────────────────────────────────────────
-TASK_ID = ""
-OUTPUT_DIR = ""
-# ────────────────────────────────────────────────────────
-
 # 从脚本所在目录向上一级（skill 根目录）加载 .env
 load_dotenv(dotenv_path=Path(__file__).parent.parent / ".env")
+
+# ── 参数配置 ─────────────────────────────────────────────
+TASK_ID = ""
+OUTPUT_DIR = get_output_dir()
+# ────────────────────────────────────────────────────────
 
 ACCESS_KEY_ID = os.environ["ALIBABA_CLOUD_ACCESS_KEY_ID"]
 ACCESS_KEY_SECRET = os.environ["ALIBABA_CLOUD_ACCESS_KEY_SECRET"]

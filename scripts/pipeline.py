@@ -10,19 +10,22 @@ import time
 import argparse
 import datetime
 from pathlib import Path
+from dotenv import load_dotenv
 
 # 把脚本所在目录加入 path，方便导入同级模块
 sys.path.insert(0, str(Path(__file__).parent))
+load_dotenv(Path(__file__).parent.parent / ".env")
 
 from create_task import create_task
 from query_task import query_task
 from get_result import save_result
 from upload_oss import upload_file, upload_stream
 from errors import explain_task_status
+from config import get_output_dir
 
 # ── 参数配置 ─────────────────────────────────────────────
 FILE_URL = ""          # 音视频文件 URL，可被命令行覆盖
-OUTPUT_DIR = ""
+OUTPUT_DIR = get_output_dir()
 POLL_INTERVAL = 15     # 轮询间隔（秒）
 MAX_WAIT = 600         # 默认最长等待时间（秒，默认 10 分钟），可通过 --timeout 覆盖
 # ────────────────────────────────────────────────────────
